@@ -48,6 +48,28 @@
             onActivation.upgrade = true;
           };
 
+          system.defaults = {
+            dock.autohide = true;
+            dock.persistent-apps = [
+              "/System/Applications/FaceTime.app"
+              "/System/Applications/Messages.app"
+              "/System/Applications/Weather.app"
+              "/System/Applications/Maps.app"
+              "/System/Applications/Music.app"
+              "/System/Applications/Mail.app"
+              "/Applications/Safari.app"
+            ];
+            dock.show-recents = false;
+            dock.mru-spaces = false;
+            trackpad.TrackpadThreeFingerDrag = true;
+            trackpad.TrackpadThreeFingerHorizSwipeGesture = 0;
+            trackpad.TrackpadFourFingerHorizSwipeGesture = 2;
+            WindowManager.StandardHideWidgets = true;
+            WindowManager.StageManagerHideWidgets = true;
+            hitoolbox.AppleFnUsageType = "Show Emoji & Symbols";
+            finder.NewWindowTarget = "Home";
+          };
+
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
 

@@ -318,4 +318,8 @@
       };
     };
   };
+
+  programs.codex = {
+    enable = true;
+  };
 }
