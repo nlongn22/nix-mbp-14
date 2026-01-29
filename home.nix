@@ -24,22 +24,32 @@
     nodejs_24
   ];
 
-  xdg.configFile."fish/config.fish".text = ''
-    alias .. "cd .."
-    alias cd.. "cd .."
-    alias ll "ls -la"
-    alias gti git
+  programs.fish = {
+    enable = true;
 
-    function sudo
+    shellAliases = {
+      ".." = "cd ..";
+      "cd.." = "cd ..";
+      ll = "ls -la";
+      gti = "git";
+    };
+
+    functions.sudo = ''
       if test "$argv" = !!
         eval command sudo $history[1]
       else
         command sudo $argv
       end
-    end
+    '';
 
-    starship init fish | source
-  '';
+    interactiveShellInit = ''
+      starship init fish | source
+    '';
+  };
+
+  programs.starship = {
+    enable = true;
+  };
 
   xdg.configFile."ghostty/config".text = ''
     theme = dark:Gruvbox Dark Hard,light:Gruvbox Light Hard
@@ -50,10 +60,6 @@
     window-padding-x = 10
     window-padding-y = 10
   '';
-
-  programs.starship = {
-    enable = true;
-  };
 
   xdg.configFile."starship.toml".text = ''
     "$schema" = 'https://starship.rs/config-schema.json'
@@ -228,6 +234,35 @@
     vimcmd_replace_symbol = '[](bold fg:color_purple)'
     vimcmd_visual_symbol = '[](bold fg:color_yellow)'
   '';
+
+  programs.vim = {
+    enable = true;
+
+    extraConfig = ''
+      syntax on
+      set number
+      set relativenumber
+      set tabstop=2
+      set shiftwidth=2
+      set expandtab
+      set cursorline
+      set clipboard+=unnamedplus
+
+      function JKescape(key) abort
+        if a:key ==# 'j'
+          let b:esc_j_lasttime = reltimefloat(reltime())
+          return a:key
+        endif
+
+        let l:timediff = reltimefloat(reltime()) - get(b:, 'esc_j_lasttime')
+        let b:esc_j_lasttime = 0.0
+        return l:timediff <= 0.1 && l:timediff > 0.001 ? "\b\e" : a:key
+      endfunction
+
+      inoremap <expr> j JKescape('j')
+      inoremap <expr> k JKescape('k')
+    '';
+  };
 
   programs.zed-editor = {
     enable = true;

@@ -27,7 +27,6 @@
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
-            pkgs.vim
             pkgs.nixd
             pkgs.nixfmt
           ];
@@ -75,7 +74,7 @@
 
           # Enable alternative shell support in nix-darwin.
           programs.fish.enable = true;
-          environment.shells = [ pkgs.fish ]; # Not working for me - had to switched manually.
+          environment.shells = [ pkgs.fish ];
 
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -84,7 +83,6 @@
 
           users.users.ngoclongnguyen = {
             home = "/Users/ngoclongnguyen";
-            shell = pkgs.fish; # Not working for me - had to switched manually.
           };
 
           # Used for backwards compatibility, please read the changelog before changing.
