@@ -67,6 +67,15 @@
             WindowManager.StageManagerHideWidgets = true;
             hitoolbox.AppleFnUsageType = "Show Emoji & Symbols";
             finder.NewWindowTarget = "Home";
+            NSGlobalDomain.ApplePressAndHoldEnabled = false;
+            NSGlobalDomain.KeyRepeat = 6;
+            NSGlobalDomain.InitialKeyRepeat = 25;
+            NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+            NSGlobalDomain.NSAutomaticInlinePredictionEnabled = false;
+            NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+            NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+            NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+            NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
           };
 
           # Necessary for using flakes on this system.
