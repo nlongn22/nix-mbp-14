@@ -44,6 +44,8 @@
               "wBlock" = 6746388723;
             };
             onActivation.cleanup = "zap";
+            onActivation.autoUpdate = true;
+            onActivation.upgrade = true;
           };
 
           # Necessary for using flakes on this system.
