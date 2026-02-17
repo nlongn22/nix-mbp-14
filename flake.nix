@@ -38,6 +38,7 @@
             ];
             casks = [
               "ghostty"
+              "codex"
             ];
             masApps = {
               "wBlock" = 6746388723;

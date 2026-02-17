@@ -354,7 +354,7 @@
     };
   };
 
-  programs.codex = {
+  programs.firefox = {
     enable = true;
   };
 }
