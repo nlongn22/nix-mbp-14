@@ -39,6 +39,10 @@
             casks = [
               "ghostty"
               "codex"
+              "chatgpt"
+              "the-unarchiver"
+              "calibre"
+              "openmtp"
             ];
             masApps = {
               "wBlock" = 6746388723;
