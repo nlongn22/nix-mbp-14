@@ -33,20 +33,16 @@
 
           homebrew = {
             enable = true;
-            brews = [
-              "mas"
+            taps = [
+              "0xcub3/wblock"
+              "nikitabobko/tap"
             ];
             casks = [
               "ghostty"
               "codex"
               "chatgpt"
-              "the-unarchiver"
-              "calibre"
-              "openmtp"
+              "aerospace"
             ];
-            masApps = {
-              "wBlock" = 6746388723;
-            };
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
