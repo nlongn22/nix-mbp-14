@@ -20,7 +20,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    ffmpeg
     tig
     nodejs_24
   ];
@@ -281,9 +280,5 @@
         defaultBranch = "main";
       };
     };
-  };
-
-  programs.firefox = {
-    enable = true;
   };
 }

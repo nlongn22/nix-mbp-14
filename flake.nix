@@ -35,17 +35,16 @@
             enable = true;
             taps = [
               "0xcub3/wblock"
-              "nikitabobko/tap"
             ];
             casks = [
               "ghostty"
               "codex"
-              "chatgpt"
-              "aerospace"
             ];
-            onActivation.cleanup = "zap";
-            onActivation.autoUpdate = true;
-            onActivation.upgrade = true;
+            onActivation = {
+              cleanup = "none";
+              autoUpdate = true;
+              upgrade = true;
+            };
           };
 
           system.defaults = {
